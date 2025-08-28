@@ -32,6 +32,12 @@ collections:
   posts:
     output: true
     permalink: /:collection/:title/
+  pages:
+    output: true
+    permalink: /:title/
+  docs:
+    output: true
+    permalink: /docs/:title/
 
 # 默认值
 defaults:
@@ -48,6 +54,11 @@ defaults:
       type: "pages"
     values:
       layout: "page"
+  - scope:
+      path: "_docs"
+      type: "docs"
+    values:
+      layout: "docs_page"
 
 # 分页
 paginate: 5
@@ -69,7 +80,11 @@ navigation:
     url: /
   - title: 博客
     url: /blog/
-  - title: 关于
-    url: /about/
+  - title: 文档
+    url: /docs/
+  - title: 分类
+    url: /categories/
   - title: 标签
     url: /tags/
+  - title: 关于
+    url: /about/

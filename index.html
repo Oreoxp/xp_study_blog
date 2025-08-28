@@ -1,67 +1,139 @@
 ---
 layout: default
-title: 首页
 ---
 
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title">欢迎来到我的学习博客</h1>
-            <p class="hero-description">{{ site.description }}</p>
-            <div class="hero-buttons">
-                <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">浏览文章</a>
-                <a href="{{ '/about/' | relative_url }}" class="btn btn-secondary">关于我</a>
-            </div>
-        </div>
-    </div>
-</section>
+<main class="main-content">
+	<section class="hero">
+		<div class="container">
+			<div class="hero-content">
+				<h1 class="hero-title">欢迎来到我的学习博客</h1>
+				<p class="hero-description">{{ site.description }}</p>
+				<div class="hero-buttons">
+					<a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">浏览文章</a>
+					<a href="{{ '/docs/' | relative_url }}" class="btn btn-secondary">文档中心</a>
+					<a href="{{ '/about/' | relative_url }}" class="btn btn-outline">关于我</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section class="featured-posts">
-    <div class="container">
-        <h2 class="section-title">最新文章</h2>
-        <div class="posts-grid">
-            {% for post in site.posts limit:6 %}
-            <article class="post-card">
-                <div class="post-card-content">
-                    <h3 class="post-card-title">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </h3>
-                    <p class="post-card-excerpt">
-                        {% if post.excerpt %}
-                        {{ post.excerpt | strip_html | truncatewords: 30 }}
-                        {% else %}
-                        {{ post.content | strip_html | truncatewords: 30 }}
-                        {% endif %}
-                    </p>
-                    <div class="post-card-meta">
-                        <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-                        {% if post.categories %}
-                        <span class="post-category">{{ post.categories.first }}</span>
-                        {% endif %}
-                    </div>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-        <div class="section-footer">
-            <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">查看所有文章</a>
-        </div>
-    </div>
-</section>
+	<section class="featured-posts">
+		<div class="container">
+			<h2 class="section-title">最新文章</h2>
+			<div class="posts-grid">
+				{% for post in site.posts limit:6 %}
+				<article class="post-card">
+					<div class="post-card-content">
+						<h3 class="post-card-title">
+							<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+						</h3>
+						<p class="post-card-excerpt">
+							{% if post.excerpt %}
+							{{ post.excerpt | strip_html | truncatewords: 30 }}
+							{% else %}
+							{{ post.content | strip_html | truncatewords: 30 }}
+							{% endif %}
+						</p>
+						<div class="post-card-meta">
+							<span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+							{% if post.categories %}
+							<span class="post-category">{{ post.categories.first }}</span>
+							{% endif %}
+						</div>
+					</div>
+				</article>
+				{% endfor %}
+			</div>
+			<div class="section-footer">
+				<a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">查看所有文章</a>
+			</div>
+		</div>
+	</section>
 
-<section class="categories-section">
-    <div class="container">
-        <h2 class="section-title">文章分类</h2>
-        <div class="categories-grid">
-            {% assign categories = site.posts | map: "categories" | uniq | sort %}
-            {% for category in categories %}
-            <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}" class="category-card">
-                <h3>{{ category }}</h3>
-                <span class="category-count">
-                    {{ site.posts | where_exp: "post", "post.categories contains category" | size }} 篇文章
-                </span>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+	<section class="docs-section">
+		<div class="container">
+			<h2 class="section-title">文档分类</h2>
+			<div class="docs-grid">
+				<div class="docs-category-card">
+					<div class="docs-category-header">
+						<h3>学习笔记</h3>
+						<span class="docs-count">1 个文档</span>
+					</div>
+					<div class="docs-list">
+						<a href="/xp_study_blog/docs/学习笔记/Python基础/" class="doc-item">
+							<span class="doc-title">Python基础</span>
+							<span class="doc-description">Python编程语言的基础知识和学习笔记</span>
+						</a>
+					</div>
+					<div class="docs-category-footer">
+						<a href="/xp_study_blog/docs/学习笔记/" class="btn btn-outline">查看全部</a>
+					</div>
+				</div>
+
+				<div class="docs-category-card">
+					<div class="docs-category-header">
+						<h3>项目资料</h3>
+						<span class="docs-count">1 个文档</span>
+					</div>
+					<div class="docs-list">
+						<a href="/xp_study_blog/docs/项目资料/项目计划文档/" class="doc-item">
+							<span class="doc-title">项目计划文档</span>
+							<span class="doc-description">个人学习博客系统的项目计划和开发文档</span>
+						</a>
+					</div>
+					<div class="docs-category-footer">
+						<a href="/xp_study_blog/docs/项目资料/" class="btn btn-outline">查看全部</a>
+					</div>
+				</div>
+
+				<div class="docs-category-card">
+					<div class="docs-category-header">
+						<h3>技术文档</h3>
+						<span class="docs-count">1 个文档</span>
+					</div>
+					<div class="docs-list">
+						<a href="/xp_study_blog/docs/技术文档/Jekyll配置指南/" class="doc-item">
+							<span class="doc-title">Jekyll配置指南</span>
+							<span class="doc-description">Jekyll静态站点生成器的配置和使用指南</span>
+						</a>
+					</div>
+					<div class="docs-category-footer">
+						<a href="/xp_study_blog/docs/技术文档/" class="btn btn-outline">查看全部</a>
+					</div>
+				</div>
+			</div>
+			<div class="section-footer">
+				<a href="{{ '/docs/' | relative_url }}" class="btn btn-primary">进入文档中心</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="categories-section">
+		<div class="container">
+			<h2 class="section-title">文章分类</h2>
+			<div class="categories-grid">
+				{% assign all_categories = "" | split: "" %}
+				{% for post in site.posts %}
+				{% for category in post.categories %}
+				{% unless all_categories contains category %}
+				{% assign all_categories = all_categories | push: category %}
+				{% endunless %}
+				{% endfor %}
+				{% endfor %}
+
+				{% assign sorted_categories = all_categories | sort %}
+				{% for category_name in sorted_categories %}
+				<a href="{{ '/categories/' | relative_url }}#{{ category_name | slugify }}" class="category-card">
+					<h3>{{ category_name }}</h3>
+					{% assign category_posts = site.posts | where_exp: "post", "post.categories contains category_name"
+					%}
+					<span class="category-count">{{ category_posts.size }} 篇文章</span>
+				</a>
+				{% endfor %}
+			</div>
+			<div class="section-footer">
+				<a href="{{ '/categories/' | relative_url }}" class="btn btn-outline">查看所有分类</a>
+			</div>
+		</div>
+	</section>
+</main>
