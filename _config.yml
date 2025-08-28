@@ -1,0 +1,75 @@
+# Jekyll配置文件
+title: XP的学习博客
+description: 记录学习笔记、技术分享和个人思考
+author: XP
+email: your-email@example.com
+url: "https://duxinpei.github.io/xp_study_blog"
+baseurl: "/xp_study_blog"
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# 集合
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:title/
+
+# 默认值
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "XP"
+      comments: true
+      share: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# 分页
+paginate: 5
+paginate_path: "/page/:num/"
+
+# 时区
+timezone: Asia/Shanghai
+
+# 社交媒体链接
+social:
+  github: duxinpei
+  twitter: your-twitter
+  linkedin: your-linkedin
+  email: your-email@example.com
+
+# 导航菜单
+navigation:
+  - title: 首页
+    url: /
+  - title: 博客
+    url: /blog/
+  - title: 关于
+    url: /about/
+  - title: 标签
+    url: /tags/

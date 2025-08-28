@@ -1,0 +1,67 @@
+---
+layout: default
+title: 首页
+---
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">欢迎来到我的学习博客</h1>
+            <p class="hero-description">{{ site.description }}</p>
+            <div class="hero-buttons">
+                <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">浏览文章</a>
+                <a href="{{ '/about/' | relative_url }}" class="btn btn-secondary">关于我</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-posts">
+    <div class="container">
+        <h2 class="section-title">最新文章</h2>
+        <div class="posts-grid">
+            {% for post in site.posts limit:6 %}
+            <article class="post-card">
+                <div class="post-card-content">
+                    <h3 class="post-card-title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        {% if post.excerpt %}
+                        {{ post.excerpt | strip_html | truncatewords: 30 }}
+                        {% else %}
+                        {{ post.content | strip_html | truncatewords: 30 }}
+                        {% endif %}
+                    </p>
+                    <div class="post-card-meta">
+                        <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                        {% if post.categories %}
+                        <span class="post-category">{{ post.categories.first }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="section-footer">
+            <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">查看所有文章</a>
+        </div>
+    </div>
+</section>
+
+<section class="categories-section">
+    <div class="container">
+        <h2 class="section-title">文章分类</h2>
+        <div class="categories-grid">
+            {% assign categories = site.posts | map: "categories" | uniq | sort %}
+            {% for category in categories %}
+            <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}" class="category-card">
+                <h3>{{ category }}</h3>
+                <span class="category-count">
+                    {{ site.posts | where_exp: "post", "post.categories contains category" | size }} 篇文章
+                </span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
