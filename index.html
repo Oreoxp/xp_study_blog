@@ -82,36 +82,7 @@ layout: default
 				{% endif %}
 			</div>
 			<div class="section-footer">
-				<a href="{{ '/docs/' | relative_url }}" class="btn btn-primary">进入文档中心</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="categories-section">
-		<div class="container">
-			<h2 class="section-title">文章分类</h2>
-			<div class="categories-grid">
-				{% assign all_categories = "" | split: "" %}
-				{% for post in site.posts %}
-				{% for category in post.categories %}
-				{% unless all_categories contains category %}
-				{% assign all_categories = all_categories | push: category %}
-				{% endunless %}
-				{% endfor %}
-				{% endfor %}
-
-				{% assign sorted_categories = all_categories | sort %}
-				{% for category_name in sorted_categories %}
-				<a href="{{ '/categories/' | relative_url }}#{{ category_name | slugify }}" class="category-card">
-					<h3>{{ category_name }}</h3>
-					{% assign category_posts = site.posts | where_exp: "post", "post.categories contains category_name"
-					%}
-					<span class="category-count">{{ category_posts.size }} 篇文章</span>
-				</a>
-				{% endfor %}
-			</div>
-			<div class="section-footer">
-				<a href="{{ '/categories/' | relative_url }}" class="btn btn-outline">查看所有分类</a>
+				<a href="{{ '/docs/' | relative_url }}" class="btn btn-outline">进入文档中心</a>
 			</div>
 		</div>
 	</section>

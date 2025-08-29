@@ -54,7 +54,7 @@ module Jekyll
         docs << {
           'title' => title,
           'filename' => file,
-          'url' => "/docs/#{category}/#{file.gsub('.md', '')}/"
+          'url' => "/docs/#{file.gsub('.md', '')}/"
         }
       end
       
@@ -106,7 +106,7 @@ module Jekyll
           docs << {
             'title' => title,
             'filename' => file,
-            'url' => "/docs/#{category}/#{file.gsub('.md', '')}/"
+            'url' => "/docs/#{file.gsub('.md', '')}/"
           }
         end
         

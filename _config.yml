@@ -10,6 +10,7 @@ baseurl: "/xp_study_blog"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
+slugify: none
 
 # 插件
 plugins:

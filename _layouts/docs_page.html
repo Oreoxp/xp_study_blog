@@ -55,7 +55,7 @@ layout: default
 							{% assign category_docs = site.docs | where: "category", page.category | sort: "title" %}
 							{% for doc in category_docs %}
 							<li>
-								<a href="{{ site.baseurl }}/docs/{{ doc.category }}/{{ doc.title }}/"
+								<a href="{{ site.baseurl }}/docs/{{ doc.title }}/"
 									class="{% if page.url == doc.url %}active{% endif %}">
 									{{ doc.title }}
 								</a>
@@ -83,8 +83,7 @@ layout: default
 							{% if current_index > 0 %}
 							{% assign prev_index = current_index | minus: 1 %}
 							{% assign prev_doc = category_docs[prev_index] %}
-							<a href="{{ site.baseurl }}/docs/{{ prev_doc.category }}/{{ prev_doc.title }}/"
-								class="nav-prev">
+							<a href="{{ site.baseurl }}/docs/{{ prev_doc.title }}/" class="nav-prev">
 								← {{ prev_doc.title }}
 							</a>
 							{% endif %}
@@ -92,8 +91,7 @@ layout: default
 							{% assign total_docs = category_docs.size | minus: 1 %}
 							{% if current_index < total_docs %} {% assign next_index=current_index | plus: 1 %} {%
 								assign next_doc=category_docs[next_index] %} <a
-								href="{{ site.baseurl }}/docs/{{ next_doc.category }}/{{ next_doc.title }}/"
-								class="nav-next">
+								href="{{ site.baseurl }}/docs/{{ next_doc.title }}/" class="nav-next">
 								{{ next_doc.title }} →
 								</a>
 								{% endif %}
