@@ -54,53 +54,32 @@ layout: default
 		<div class="container">
 			<h2 class="section-title">文档分类</h2>
 			<div class="docs-grid">
+				{% if site.data.docs %}
+				{% for category in site.data.docs.categories %}
 				<div class="docs-category-card">
 					<div class="docs-category-header">
-						<h3>学习笔记</h3>
-						<span class="docs-count">1 个文档</span>
+						<h3>{{ category.name }}</h3>
+						<span class="docs-count">{{ category.doc_count }} 个文档</span>
 					</div>
 					<div class="docs-list">
-						<a href="/xp_study_blog/docs/学习笔记/Python基础/" class="doc-item">
-							<span class="doc-title">Python基础</span>
-							<span class="doc-description">Python编程语言的基础知识和学习笔记</span>
+						{% for doc in category.docs limit:3 %}
+						<a href="{{ doc.url | relative_url }}" class="doc-item">
+							<span class="doc-title">{{ doc.title }}</span>
+							<span class="doc-description">{{ doc.description | default: doc.title | append: '相关文档'
+								}}</span>
 						</a>
+						{% endfor %}
 					</div>
 					<div class="docs-category-footer">
-						<a href="/xp_study_blog/docs/学习笔记/" class="btn btn-outline">查看全部</a>
+						<a href="{{ '/docs/' | append: category.path | append: '/' | relative_url }}"
+							class="btn btn-outline">查看全部</a>
 					</div>
 				</div>
-
-				<div class="docs-category-card">
-					<div class="docs-category-header">
-						<h3>项目资料</h3>
-						<span class="docs-count">1 个文档</span>
-					</div>
-					<div class="docs-list">
-						<a href="/xp_study_blog/docs/项目资料/项目计划文档/" class="doc-item">
-							<span class="doc-title">项目计划文档</span>
-							<span class="doc-description">个人学习博客系统的项目计划和开发文档</span>
-						</a>
-					</div>
-					<div class="docs-category-footer">
-						<a href="/xp_study_blog/docs/项目资料/" class="btn btn-outline">查看全部</a>
-					</div>
-				</div>
-
-				<div class="docs-category-card">
-					<div class="docs-category-header">
-						<h3>技术文档</h3>
-						<span class="docs-count">1 个文档</span>
-					</div>
-					<div class="docs-list">
-						<a href="/xp_study_blog/docs/技术文档/Jekyll配置指南/" class="doc-item">
-							<span class="doc-title">Jekyll配置指南</span>
-							<span class="doc-description">Jekyll静态站点生成器的配置和使用指南</span>
-						</a>
-					</div>
-					<div class="docs-category-footer">
-						<a href="/xp_study_blog/docs/技术文档/" class="btn btn-outline">查看全部</a>
-					</div>
-				</div>
+				{% endfor %}
+				{% else %}
+				<!-- 如果动态数据不可用，显示静态内容作为后备 -->
+				{% include dynamic_docs.html %}
+				{% endif %}
 			</div>
 			<div class="section-footer">
 				<a href="{{ '/docs/' | relative_url }}" class="btn btn-primary">进入文档中心</a>

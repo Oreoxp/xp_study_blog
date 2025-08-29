@@ -1,0 +1,47 @@
+categories:
+- name: 学习笔记
+  path: 学习笔记
+  docs:
+  - filename: Python基础
+    title: Python基础
+    description: Python编程语言的基础知识和学习笔记
+    path: 学习笔记/Python基础.md
+    url: /docs/学习笔记/Python基础/
+    date: '2024-01-01'
+    tags: []
+  - filename: 新文档示例
+    title: 新文档示例
+    description: 这是一个演示动态文档系统自动更新功能的示例文档
+    path: 学习笔记/新文档示例.md
+    url: /docs/学习笔记/新文档示例/
+    date: '2024-01-20'
+    tags:
+    - 示例
+    - 演示
+    - 动态更新
+  doc_count: 2
+- name: 技术文档
+  path: 技术文档
+  docs:
+  - filename: Jekyll配置指南
+    title: Jekyll配置指南
+    description: Jekyll静态站点生成器的配置和使用指南
+    path: 技术文档/Jekyll配置指南.md
+    url: /docs/技术文档/Jekyll配置指南/
+    date: '2024-01-01'
+    tags: []
+  doc_count: 1
+- name: 项目资料
+  path: 项目资料
+  docs:
+  - filename: 项目计划
+    title: 项目计划文档
+    description: 个人学习博客系统的项目计划和开发文档
+    path: 项目资料/项目计划.md
+    url: /docs/项目资料/项目计划/
+    date: '2024-01-01'
+    tags: []
+  doc_count: 1
+total_docs: 4
+last_updated: '2025-08-29T09:58:08.922427'
+generated_by: generate_docs_data.py
