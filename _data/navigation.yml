@@ -1,0 +1,22 @@
+- title: Getting Started
+  children:
+  - title: Introduction
+    url: /docs/getting-started/introduction/
+- title: Guides
+  children:
+  - title: Deploy
+    url: /docs/guides/deploy/
+  - title: Test Subfolder
+    children:
+    - title: Test Doc
+      url: /docs/guides/test-subfolder/test-doc/
+  - title: Test2
+    url: /docs/guides/test2/
+  - title: 看一看
+    children:
+    - title: '3'
+      url: /docs/guides/看一看/3/
+    - title: 子文件夹
+      children:
+      - title: 测试文档
+        url: /docs/guides/看一看/子文件夹/测试文档/

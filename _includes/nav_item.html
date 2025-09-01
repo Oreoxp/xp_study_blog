@@ -1,0 +1,14 @@
+{% if include.item.children %}
+	<div class="nav-group">
+		<span class="nav-title">{{ include.item.title }}</span>
+		<ul>
+			{% for child in include.item.children %}
+				<li>
+					{% include nav_item.html item=child %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% else %}
+	<a href="{{ include.item.url }}">{{ include.item.title }}</a>
+{% endif %}

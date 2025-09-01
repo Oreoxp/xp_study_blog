@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/docs/guides/%E7%9C%8B%E4%B8%80%E7%9C%8B/3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/docs/guides/deploy/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/docs/getting-started/introduction/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/docs/guides/test-subfolder/test-doc/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/docs/guides/test2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/docs/guides/%E7%9C%8B%E4%B8%80%E7%9C%8B/%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/</loc>
+</url>
+</urlset>

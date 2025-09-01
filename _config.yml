@@ -1,24 +1,46 @@
-# Jekyll配置文件
-title: XP的学习博客
-description: 记录学习笔记、技术分享和个人思考
-author: XP
+# Site settings
+title: XP Study Blog
 email: your-email@example.com
-url: "https://duxinpei.github.io/xp_study_blog"
-baseurl: "/xp_study_blog"
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jekyllrb
+github_username: jekyll
 
-# 构建设置
+# Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /:year/:month/:day/:title/
-slugify: none
+permalink: /:title/
 
-# 插件
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# 排除文件
+# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -27,65 +49,6 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-
-# 集合
-collections:
-  posts:
-    output: true
-    permalink: /:collection/:title/
-  pages:
-    output: true
-    permalink: /:title/
-  docs:
-    output: true
-    permalink: /docs/:title/
-
-# 默认值
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "XP"
-      comments: true
-      share: true
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
-  - scope:
-      path: "_docs"
-      type: "docs"
-    values:
-      layout: "docs_page"
-
-# 分页
-paginate: 5
-paginate_path: "/page/:num/"
-
-# 时区
-timezone: Asia/Shanghai
-
-# 社交媒体链接
-social:
-  github: duxinpei
-  twitter: your-twitter
-  linkedin: your-linkedin
-  email: your-email@example.com
-
-# 导航菜单
-navigation:
-  - title: 首页
-    url: /
-  - title: 博客
-    url: /blog/
-  - title: 文档
-    url: /docs/
-  - title: 分类
-    url: /categories/
-  - title: 标签
-    url: /tags/
-  - title: 关于
-    url: /about/
+  - venv/
+  - build.py
+  - requirements.txt

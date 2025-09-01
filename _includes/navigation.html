@@ -1,0 +1,18 @@
+{%- assign items = include.items -%}
+{%- if items -%}
+<ul>
+	{%- for item in items -%}
+	<li>
+		{%- if item.url -%}
+		<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+		{%- else -%}
+		<span>{{ item.title }}</span>
+		{%- endif -%}
+
+		{%- if item.children -%}
+		{%- include navigation.html items=item.children -%}
+		{%- endif -%}
+	</li>
+	{%- endfor -%}
+</ul>
+{%- endif -%}

@@ -1,0 +1,16 @@
+--- --- @import "minima";
+
+// 我们的自定义样式
+.wrapper {
+	display: flex;
+}
+
+.sidebar {
+	width: 250px;
+	margin-right: 20px;
+	flex-shrink: 0;
+}
+
+.post {
+	flex-grow: 1;
+}
