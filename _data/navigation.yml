@@ -1,22 +1,16 @@
-- title: Getting Started
+- title: 高性能网络
   children:
-  - title: Introduction
-    url: /docs/getting-started/introduction/
-- title: Guides
-  children:
-  - title: Deploy
-    url: /docs/guides/deploy/
-  - title: Test Subfolder
+  - title: Vpp
     children:
-    - title: Test Doc
-      url: /docs/guides/test-subfolder/test-doc/
-  - title: Test2
-    url: /docs/guides/test2/
-  - title: 看一看
-    children:
-    - title: '3'
-      url: /docs/guides/看一看/3/
-    - title: 子文件夹
+    - title: 00Vpp简介
       children:
-      - title: 测试文档
-        url: /docs/guides/看一看/子文件夹/测试文档/
+      - title: 什么是Vpp
+        url: /docs/高性能网络/VPP/00VPP简介/什么是vpp/
+    - title: 01安装
+      children:
+      - title: 安装Vpp
+        url: /docs/高性能网络/VPP/01安装/安装vpp/
+    - title: 03运行Vpp
+      children:
+      - title: 运行Vpp
+        url: /docs/高性能网络/VPP/03运行vpp/运行vpp/
