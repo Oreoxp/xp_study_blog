@@ -10,5 +10,5 @@
 		</ul>
 	</div>
 {% else %}
-	<a href="{{ include.item.url }}">{{ include.item.title }}</a>
+	<a href="{{ include.item.url | relative_url }}">{{ include.item.title }}</a>
 {% endif %}
